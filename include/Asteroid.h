@@ -21,16 +21,10 @@ class Asteroid
         void SetAsteroid_Size(Size val) { Asteroid_Size = val; }
 
         void Populate_Mine_Field();
+        void Drift(std::vector <Asteroid*> Current_Field, int seed); // Function causes asteroids to move about arbitrarily within the game.
         void Remove_Asteroid();
 
-        std::vector <Asteroid*> GetMine_Field() {
-           unsigned int s = Mine_Field.size();
-            for(unsigned int i = 0; i < s; i++)
-            {
-                std::cout << Mine_Field[i]->GetAsteroid_Location().GetX_Coordinate() << std::endl;
-            }
-
-            return Mine_Field; }
+        std::vector <Asteroid*> GetMine_Field() { return Mine_Field; }
 
     protected:
 

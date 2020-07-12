@@ -3,7 +3,7 @@
 
 #include "Player_Presentation.h"
 #include "Weapon_Presentation.h"
-//#include "Asteroid_Presentation.h"
+#include "Asteroid_Presentation.h"
 
 #include<SFML/Graphics.hpp>
 class Run_Game
@@ -19,6 +19,7 @@ class Run_Game
     private:
         Player_Presentation player;
         Weapon_Presentation weapon;
+        Asteroid_Presentation asteroids;
 
         sf::RenderWindow Game_Screen;
 };

@@ -3,6 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 #include "Asteroid.h"
+#include <vector>
+#include <iostream>
 class Asteroid_Presentation
 {
     public:
@@ -10,13 +12,32 @@ class Asteroid_Presentation
         void Update(); // Update position and existence of individual asteroids.
         virtual ~Asteroid_Presentation();
 
+        void draw(sf::RenderWindow& window);
+        void update(float dt);
+
+        void mapSprites(std::vector <Asteroid*> Mine_Field);
+
     protected:
 
     private:
-        sf::Texture Asteroid_Texture;
-        sf::Sprite Asteroid_Sprite;
+        sf::Texture Asteroid1_Texture;
+        sf::Sprite Asteroid1_Sprite;
+
+        sf::Texture Asteroid2_Texture;
+        sf::Sprite Asteroid2_Sprite;
+
+        sf::Texture Asteroid3_Texture;
+        sf::Sprite Asteroid3_Sprite;
+
+        sf::Texture Asteroid4_Texture;
+        sf::Sprite Asteroid4_Sprite;
+
+        sf::Texture Asteroid5_Texture;
+        sf::Sprite Asteroid5_Sprite;
 
         Asteroid Bodies;
+        std::vector<sf::Sprite> Asteroid_Sprites;
+        std::vector <Asteroid*> Asteroids;
 };
 
 #endif // ASTEROID_PRESENTATION_H
