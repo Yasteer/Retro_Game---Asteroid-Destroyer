@@ -49,11 +49,13 @@ void Run_Game::Run()
         sf::Time time = clock.getElapsedTime();
         player.update(time.asMilliseconds());
         weapon.update(time.asMilliseconds());
+        asteroids.update(time.asMilliseconds());
         clock.restart().asMilliseconds();
 
         Game_Screen.clear();
         player.draw(Game_Screen);
         weapon.draw(Game_Screen);
+        asteroids.draw(Game_Screen);
         Game_Screen.display();
     }
 }

@@ -13,14 +13,12 @@ Asteroid::Asteroid(Size Dimensions, Position Location)
 
 Asteroid::~Asteroid()
 {
-    std::cout << "Deconstructer Called" << std::endl;
     unsigned int Vector_Size = Mine_Field.size();
     for(unsigned int index = 0; index < Vector_Size; index++)
     {
         delete Mine_Field[index];
         Mine_Field[index] = NULL;
     }
-
 }
 
 void Asteroid::Populate_Mine_Field()
@@ -41,4 +39,21 @@ void Asteroid::Populate_Mine_Field()
 
     }
 
+}
+
+void Asteroid::Drift(std::vector<Asteroid*> Current_Field, int seed)
+{
+    srand(seed);
+    int Field_Size = Current_Field.size();
+    for(int element = 0; element < Field_Size; element++)
+    {
+        int X_Drift = Current_Field[element]->GetAsteroid_Location().GetX_Coordinate() + (rand() % 1 - 1);
+        int Y_Drift = Current_Field[element]->GetAsteroid_Location().GetY_Coordinate() + (rand() % 1 - 1);
+
+        Asteroid_Location.SetX_Coordinate(X_Drift);
+        Asteroid_Location.SetY_Coordinate(Y_Drift);
+
+        Current_Field[element]->SetAsteroid_Location(Asteroid_Location);
+    }
+    return;
 }
