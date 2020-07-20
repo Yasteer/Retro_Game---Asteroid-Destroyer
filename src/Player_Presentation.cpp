@@ -2,7 +2,7 @@
 
 Player_Presentation::Player_Presentation()
 {
-    if(!Player_Texture.loadFromFile("Player.png"))
+    if(!Player_Texture.loadFromFile("In_Game_Images/Player.png"))
     {
         // handle error
     }
@@ -51,4 +51,9 @@ void Player_Presentation::move_player(char newDirection)
 Position Player_Presentation::getPlayerPosition()
 {
     return Player_Object.getPosition();
+}
+
+Size Player_Presentation::getPlayerSize()
+{
+    return Player_Object.getPlayerSize();
 }

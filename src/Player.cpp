@@ -2,8 +2,8 @@
 
 Player::Player() // Default Parameters For A Player
 {
-    Player_Size.SetHeight(5);
-    Player_Size.SetLength(10);
+    Player_Size.SetHeight(10);
+    Player_Size.SetLength(5);
 
     Location.SetX_Coordinate(900);
     Location.SetY_Coordinate(500);
@@ -38,4 +38,9 @@ void Player::setPosition(unsigned int x, unsigned int y)
 Weapon Player::getWeapon()
 {
     return Main_Artillery;
+}
+
+Size Player::getPlayerSize()
+{
+    return Player_Size;
 }

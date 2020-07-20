@@ -1,4 +1,5 @@
 #include "Asteroid_Presentation.h"
+#include <iostream>
 
 Asteroid_Presentation::Asteroid_Presentation()
 {
@@ -21,8 +22,6 @@ Asteroid_Presentation::Asteroid_Presentation()
     Asteroid4_Sprite.setTextureRect(sf::IntRect(60,315,130,115));
     Asteroid5_Sprite.setTextureRect(sf::IntRect(1055,315,130,128));
 
-    Asteroid5_Sprite.setPosition(600,600);
-
 }
 
 Asteroid_Presentation::~Asteroid_Presentation()
@@ -32,10 +31,7 @@ Asteroid_Presentation::~Asteroid_Presentation()
 
 void Asteroid_Presentation::update(float dt)
 {
-    // Use the Clock to seed the random number generator. Probably looks more random than using loop time.
-
-
-    Bodies.Drift(Bodies.GetMine_Field(), (int) dt); // Cast the Run Game loop time to an int and use thhis as the seed for the Drift function.
+    Bodies.Drift(Bodies.GetMine_Field());
     return;
 }
 
@@ -58,28 +54,47 @@ void Asteroid_Presentation::mapSprites(std::vector <Asteroid*> Mine_Field)
         int Asteroid_X_Coordinate = Mine_Field[element]->GetAsteroid_Location().GetX_Coordinate();
         int Asteroid_Y_Coordinate = Mine_Field[element]->GetAsteroid_Location().GetY_Coordinate();
 
+        //unsigned int Asteroid_Length = Mine_Field[element]->GetAsteroid_Size().GetLength();
+        //unsigned int Asteroid_Height = Mine_Field[element]->GetAsteroid_Size().GetHeight();
+
         // Assign Sprites --> Would have liked to use a Switch statement but C++ requires that "case labels be constants" so no expressions for logic can be used.
         if(element > 0 && element < 5)
         {
+            //Asteroid1_Sprite.setScale(Asteroid_Length/Asteroid1_Sprite.getTexture()->getSize().x,Asteroid_Height/Asteroid1_Sprite.getTexture()->getSize().y);
             Asteroid_Sprites.push_back(Asteroid1_Sprite);
         }
         else if(element > 5 && element < 10)
         {
+            //Asteroid2_Sprite.setScale(Asteroid_Length/Asteroid2_Sprite.getTexture()->getSize().x,Asteroid_Height/Asteroid2_Sprite.getTexture()->getSize().y);
             Asteroid_Sprites.push_back(Asteroid2_Sprite);
         }
         else if(element > 10 && element < 15)
         {
+            //Asteroid3_Sprite.setScale(Asteroid_Length/Asteroid3_Sprite.getTexture()->getSize().x,Asteroid_Height/Asteroid3_Sprite.getTexture()->getSize().y);
             Asteroid_Sprites.push_back(Asteroid3_Sprite);
         }
         else if(element > 15 && element < 20)
         {
+            //Asteroid4_Sprite.setScale(Asteroid_Length/Asteroid4_Sprite.getTexture()->getSize().x,Asteroid_Height/Asteroid4_Sprite.getTexture()->getSize().y);
             Asteroid_Sprites.push_back(Asteroid4_Sprite);
         }
         else
+            //Asteroid5_Sprite.setScale(Asteroid_Length/Asteroid5_Sprite.getTexture()->getSize().x,Asteroid_Height/Asteroid5_Sprite.getTexture()->getSize().y);
             Asteroid_Sprites.push_back(Asteroid5_Sprite);
 
 
         Asteroid_Sprites[element].setPosition(Asteroid_X_Coordinate,Asteroid_Y_Coordinate);
     }
+    return;
+}
+
+std::vector <Asteroid*> Asteroid_Presentation::getField()
+{
+    return Bodies.GetMine_Field();
+}
+
+void Asteroid_Presentation::deleteAsteroid(unsigned int element)
+{
+    Bodies.Remove_Asteroid(element);
     return;
 }

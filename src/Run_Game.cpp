@@ -1,6 +1,6 @@
 #include "Run_Game.h"
-
-Run_Game::Run_Game():Game_Screen(sf::VideoMode(1920, 1080), "Game_Screen")
+#include <iostream>
+Run_Game::Run_Game():Game_Screen(sf::VideoMode(1500, 900), "Game_Screen")
 {
 
 }
@@ -12,6 +12,7 @@ Run_Game::~Run_Game()
 
 void Run_Game::Run()
 {
+    Game_Screen.setFramerateLimit(60); // Industry Standard.
     sf::Clock clock; // Variable used to calculate loop time (for frame rate).
     while (Game_Screen.isOpen())
     {
@@ -40,10 +41,30 @@ void Run_Game::Run()
                 case sf::Keyboard::Up:
                     weapon.Fire_Weapon(player.getPlayerPosition());
                     break;
-                //default:
-
+                default:
+                    break;
                 }
             }
+        }
+
+        // Check For Any Collisions:
+        unsigned int Asteroid_Field_Size = asteroids.getField().size();
+        for(unsigned int element=0; element<Asteroid_Field_Size; element++)
+        {
+            // Player & Asteroid:
+            if(test.Collision_Detected(player.getPlayerPosition(),player.getPlayerSize(),asteroids.getField().at(element)->GetAsteroid_Location(),asteroids.getField().at(element)->GetAsteroid_Size()) == true)
+            {
+                Game_Screen.close();
+                std::cout<< "You dieded";
+            }
+            // Ammo & Asteroid:
+            if(test.Collision_Detected(weapon.getAmmoPosition(),weapon.getAmmoSize(),asteroids.getField().at(element)->GetAsteroid_Location(),asteroids.getField().at(element)->GetAsteroid_Size()) == true)
+            {
+                //asteroids.deleteAsteroid(element);
+                std::cout << "Asteroid Hit By Bullet" <<std::endl;
+                //std::cout<< weapon.getAmmoPosition().GetX_Coordinate() << " " << weapon.getAmmoPosition().GetY_Coordinate() <<std::endl;
+            }
+
         }
 
         sf::Time time = clock.getElapsedTime();

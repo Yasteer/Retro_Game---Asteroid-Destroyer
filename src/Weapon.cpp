@@ -10,26 +10,16 @@ Weapon::~Weapon()
     //dtor
 }
 
-void Weapon::setAmmoLocation(unsigned int x, unsigned int y)
+void Weapon::ReduceAmmo()
 {
-    Weapon_Ammo.setAmmoPosition(x,y);
+    unsigned int Current_Ammo = Weapon_Ammo.GetRemaining_Ammo();
+    Weapon_Ammo.SetRemaining_Ammo(Current_Ammo - 1);
     return;
 }
 
-Position Weapon::getAmmoLocation()
+void Weapon::Move_Ammo()
 {
-    return Weapon_Ammo.getAmmoPosition();
-}
-
-void Weapon::reduceAmmo()
-{
-    int Remaining_Ammo = Weapon_Ammo.GetRemaining_Ammo();
-    Weapon_Ammo.SetRemaining_Ammo(Remaining_Ammo - 1);
+    Weapon_Ammo.moveAmmo();
+    GetTerminationStatus();
     return;
 }
-
-int Weapon::getRemainingAmmo()
-{
-    return Weapon_Ammo.GetRemaining_Ammo();
-}
-

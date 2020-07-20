@@ -1,14 +1,14 @@
 #include "Splash_Screen.h"
 
-Splash_Screen::Splash_Screen():splashscreen(sf::VideoMode(1920, 1080), "Splashscreen")
+Splash_Screen::Splash_Screen():splashscreen(sf::VideoMode(1400, 1000), "Splashscreen")
 {
-    if (!begin.loadFromFile("bin/Debug/In_Game_Images/Splash.png"));
+    if (!begin.loadFromFile("In_Game_Images/Splash.png"));
     Begin.setTexture(begin);
     sf::Text text1, text2, text3, text4;
     sf::Font font;
     splashscreen.setVerticalSyncEnabled(true);
 
-    if(!font.loadFromFile("bin/Debug/ariblk.ttf")){ // Include In Debug File
+    if(!font.loadFromFile("In_Game_Images/ariblk.ttf")){ // Include In Debug File
         std::cout << "Program Halted." << std::endl;
         std::exit(-1);
     }
