@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Asteroid.h"
 #include <vector>
-#include <iostream>
+#include <ctime>
 class Asteroid_Presentation
 {
     public:
@@ -14,8 +14,11 @@ class Asteroid_Presentation
 
         void draw(sf::RenderWindow& window);
         void update(float dt);
+        void deleteAsteroid(unsigned int element);
 
         void mapSprites(std::vector <Asteroid*> Mine_Field);
+        std::vector <Asteroid*> getField();
+
 
     protected:
 

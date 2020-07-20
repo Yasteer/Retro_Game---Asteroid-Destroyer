@@ -14,6 +14,7 @@ class Player
 
         Position getPosition();
         void setPosition(unsigned int x, unsigned int y);
+        Size getPlayerSize();
 
         Weapon getWeapon();
         //void setWeapon(Weapon newWeapon);

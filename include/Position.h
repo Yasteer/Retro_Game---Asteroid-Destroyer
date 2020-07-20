@@ -8,9 +8,9 @@ class Position
         Position(unsigned int X, unsigned int Y);
         virtual ~Position();
 
-        unsigned int GetX_Coordinate() { return X_Coordinate; }
+        unsigned int GetX_Coordinate() const { return X_Coordinate; }
         void SetX_Coordinate(unsigned int val) { X_Coordinate = val; }
-        unsigned int GetY_Coordinate() { return Y_Coordinate; }
+        unsigned int GetY_Coordinate() const { return Y_Coordinate; }
         void SetY_Coordinate(unsigned int val) { Y_Coordinate = val; }
 
     protected:

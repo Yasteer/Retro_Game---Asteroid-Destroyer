@@ -8,9 +8,9 @@ class Size
         Size();
         virtual ~Size();
 
-        unsigned int GetLength() { return Length; }
+        unsigned int GetLength() const { return Length; }
         void SetLength(unsigned int val) { Length = val; }
-        unsigned int GetHeight() { return Height; }
+        unsigned int GetHeight() const { return Height; }
         void SetHeight(unsigned int val) { Height = val; }
 
     protected:

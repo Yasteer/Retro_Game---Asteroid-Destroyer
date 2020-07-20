@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "Position.h"
-
+#include "Size.h"
 class Player_Presentation
 {
     public:
@@ -16,6 +16,7 @@ class Player_Presentation
         void move_player(char newDirection);
 
         Position getPlayerPosition();
+        Size getPlayerSize();
 
     protected:
 

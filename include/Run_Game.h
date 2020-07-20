@@ -4,6 +4,7 @@
 #include "Player_Presentation.h"
 #include "Weapon_Presentation.h"
 #include "Asteroid_Presentation.h"
+#include "Collision_Detection.h"
 
 #include<SFML/Graphics.hpp>
 class Run_Game
@@ -20,6 +21,8 @@ class Run_Game
         Player_Presentation player;
         Weapon_Presentation weapon;
         Asteroid_Presentation asteroids;
+
+        Collision_Detection test;
 
         sf::RenderWindow Game_Screen;
 };

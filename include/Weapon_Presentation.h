@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Weapon.h"
 #include "Position.h"
+#include "Size.h"
 class Weapon_Presentation
 {
     public:
@@ -14,18 +15,33 @@ class Weapon_Presentation
         void update(float dt);
 
         void Fire_Weapon(Position Player_Position);
+        Position GetWeaponOrigin();
+
+        Position Get_Ammo_Origin();
         void Set_Ammo_Origin(Position Previous_Position);
+
+        Position getAmmoPosition();
+        void SetAmmoPosition(Position newPosition) {weapon_position = newPosition;};
+
+        Size getAmmoSize();
 
     protected:
 
     private:
         Weapon weapon;
+        Position weapon_position;
+        Position weapon_origin;
 
         sf::Texture Ammo_Texture;
         sf::Sprite Ammo_Sprite;
+
         sf::Sprite Bullet_Sprite;
+        sf::Sprite Bullet_EndLife_Sprite;
+
         sf::Sprite Rocket_Sprite;
         sf::Sprite Laser_Sprite;
+
+        bool Terminate_Ammo_Sprite;
 };
 
 #endif // WEAPON_PRESENTATION_H
