@@ -1,6 +1,6 @@
 #include "Run_Game.h"
 #include <iostream>
-Run_Game::Run_Game():Game_Screen(sf::VideoMode(1500, 900), "Game_Screen")
+Run_Game::Run_Game():Game_Screen(sf::VideoMode(WIDTH,HEIGHT), "Game_Screen")
 {
 
 }
@@ -54,14 +54,13 @@ void Run_Game::Run()
             // Player & Asteroid:
             if(test.Collision_Detected(player.getPlayerPosition(),player.getPlayerSize(),asteroids.getField().at(element)->GetAsteroid_Location(),asteroids.getField().at(element)->GetAsteroid_Size()) == true)
             {
-                Game_Screen.close();
-                std::cout<< "You dieded";
+                indicators.Reduce_Life();
+                player.reset();
             }
             // Ammo & Asteroid:
             if(test.Collision_Detected(weapon.getAmmoPosition(),weapon.getAmmoSize(),asteroids.getField().at(element)->GetAsteroid_Location(),asteroids.getField().at(element)->GetAsteroid_Size()) == true)
             {
-                //asteroids.deleteAsteroid(element);
-                std::cout << "Asteroid Hit By Bullet" <<std::endl;
+                asteroids.deleteAsteroid(element);
                 //std::cout<< weapon.getAmmoPosition().GetX_Coordinate() << " " << weapon.getAmmoPosition().GetY_Coordinate() <<std::endl;
             }
 
@@ -69,14 +68,22 @@ void Run_Game::Run()
 
         sf::Time time = clock.getElapsedTime();
         player.update(time.asMilliseconds());
+        indicators.update(time.asMilliseconds());
         weapon.update(time.asMilliseconds());
-        asteroids.update(time.asMilliseconds());
+        asteroids.update(time.asMilliseconds(),GetWindowWidth(),GetWindowHeight());
         clock.restart().asMilliseconds();
 
         Game_Screen.clear();
         player.draw(Game_Screen);
+        indicators.draw(Game_Screen);
         weapon.draw(Game_Screen);
         asteroids.draw(Game_Screen);
         Game_Screen.display();
+
+        if(indicators.Get_Lives() == 0)
+        {
+            Game_Screen.close();
+            //Death_Screen.open();
+        }
     }
 }

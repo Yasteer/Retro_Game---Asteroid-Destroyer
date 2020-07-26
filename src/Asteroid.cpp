@@ -24,7 +24,7 @@ Asteroid::~Asteroid()
 
 void Asteroid::Populate_Mine_Field()
 {
-    while(Mine_Field.size() < 2)
+    while(Mine_Field.size() < Recommended_Mine_Field_Size)
     {
         srand(time(0));// Assign a position based on this new seed.
 
@@ -61,6 +61,7 @@ void Asteroid::Drift(std::vector<Asteroid*> Current_Field)
         Asteroid_Location.SetY_Coordinate(Y_Drift);
 
         Current_Field[element]->SetAsteroid_Location(Asteroid_Location);
+
         Toggle_Value *= -1;
     }
     return;
@@ -68,8 +69,25 @@ void Asteroid::Drift(std::vector<Asteroid*> Current_Field)
 
 void Asteroid::Remove_Asteroid(unsigned int Asteroid_Number)
 {
-    //delete Mine_Field[Asteroid_Number];
-    //Mine_Field[Asteroid_Number] = NULL;
-    std::cout << "New Field Size " << Mine_Field.size() << std::endl;
+    Mine_Field.erase(Mine_Field.begin() + (Asteroid_Number));
     return;
+}
+
+bool Asteroid::CheckBounds(int WindowWidth, int WindowHeight)
+{
+    int Current_Field_Size = Mine_Field.size();
+    for(int element = 0; element < Current_Field_Size; element++)
+    {
+        if((Mine_Field[element]->GetAsteroid_Location().GetX_Coordinate() < 0) || (Mine_Field[element]->GetAsteroid_Location().GetX_Coordinate() > WindowWidth))
+        {
+            Remove_Asteroid(element);
+            return true;
+        }
+        if((Mine_Field[element]->GetAsteroid_Location().GetY_Coordinate() < 0) || (Mine_Field[element]->GetAsteroid_Location().GetY_Coordinate() > WindowHeight))
+        {
+            Remove_Asteroid(element);
+            return true;
+        }
+    }
+    return false;
 }

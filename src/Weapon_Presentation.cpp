@@ -41,7 +41,6 @@ void Weapon_Presentation::update(float dt)
     if(weapon.GetTerminationStatus() == true)
     {
         Terminate_Ammo_Sprite = true;
-        std::cout<< "DIE"<<std::endl;
     }
     return;
 }

@@ -2,7 +2,7 @@
 
 Upgrade::Upgrade()
 {
-    //ctor
+    SetSpecial_Effect(Shields);
 }
 
 Upgrade::~Upgrade()

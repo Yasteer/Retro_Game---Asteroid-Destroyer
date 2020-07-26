@@ -18,14 +18,19 @@ Player_Presentation::~Player_Presentation()
 
 void Player_Presentation::draw(sf::RenderWindow& window)
 {
-    Player_Sprite.setPosition(Player_Object.getPosition().GetX_Coordinate(), Player_Object.getPosition().GetY_Coordinate());
     window.draw(Player_Sprite);
     return;
 }
 
 void Player_Presentation::update(float dt)
 {
+    Player_Sprite.setPosition(Player_Object.getPosition().GetX_Coordinate(), Player_Object.getPosition().GetY_Coordinate());
+    return;
+}
 
+void Player_Presentation::reset()
+{
+    Player_Object.setPosition(500, 500);
     return;
 }
 
@@ -57,3 +62,4 @@ Size Player_Presentation::getPlayerSize()
 {
     return Player_Object.getPlayerSize();
 }
+
