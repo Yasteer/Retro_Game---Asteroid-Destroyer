@@ -15,7 +15,7 @@ class Asteroid
         Asteroid(Size Dimensions, Position Location);
         virtual ~Asteroid();
 
-        Position GetAsteroid_Location() { return Asteroid_Location; }
+        Position GetAsteroid_Location() const { return Asteroid_Location; }
         void SetAsteroid_Location(Position val) { Asteroid_Location = val; }
         Size GetAsteroid_Size() { return Asteroid_Size; }
         void SetAsteroid_Size(Size val) { Asteroid_Size = val; }
@@ -25,6 +25,9 @@ class Asteroid
         void Remove_Asteroid(unsigned int Asteroid_Number);
 
         std::vector <Asteroid*> GetMine_Field() { return Mine_Field; }
+        unsigned int GetRecommendedMineFieldSize() const { return Recommended_Mine_Field_Size; }
+
+        bool CheckBounds(int WindowWidth, int WindowHeight);
 
     protected:
 
@@ -32,7 +35,7 @@ class Asteroid
         std::vector <Asteroid*> Mine_Field; // Vector of pointers to randomly generated asteroids. We need pointers because these vectors are going to get huge and copying them over isn't an option.
         Position Asteroid_Location;
         Size Asteroid_Size;
-        int Position_Seed;
+        unsigned int Recommended_Mine_Field_Size = 2;
 };
 
 #endif // ASTEROID_H

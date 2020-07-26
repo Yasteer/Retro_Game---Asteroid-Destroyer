@@ -13,12 +13,13 @@ class Asteroid_Presentation
         virtual ~Asteroid_Presentation();
 
         void draw(sf::RenderWindow& window);
-        void update(float dt);
+        void update(float dt, int Width, int Height);
         void deleteAsteroid(unsigned int element);
 
         void mapSprites(std::vector <Asteroid*> Mine_Field);
         std::vector <Asteroid*> getField();
 
+        void CheckBounds(int Width, int Height);
 
     protected:
 
@@ -41,6 +42,8 @@ class Asteroid_Presentation
         Asteroid Bodies;
         std::vector<sf::Sprite> Asteroid_Sprites;
         std::vector <Asteroid*> Asteroids;
+
+        sf::Clock clock; // Variable used to calculate loop time
 };
 
 #endif // ASTEROID_PRESENTATION_H
