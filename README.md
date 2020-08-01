@@ -2,8 +2,10 @@
 C++ &amp; SFML Based Game
 
 # Current Functionality:
-Able to move player and fire basic weapon. 
+Able to move player and fire weapons. 
+
 Collision detection implemented.
+
 Life & Mana counter. 
 
 # To Do's:
