@@ -11,13 +11,13 @@ class Weapon
         enum Weapon_Type {Gun, RPG, Laser};
 
         Weapon_Type GetWeapon_Type() { return Artillery; }
-        void SetWeapon_Type(Weapon_Type val) { Artillery = val; }
+        void SetWeapon_Type(Weapon_Type val);
 
         int GetFire_Rate() { return Fire_Rate; }
         void SetFire_Rate(int val) { Fire_Rate = val; }
 
         Ammo GetAmmo_Type() { return Weapon_Ammo; }
-        void SetAmmo_Type(Ammo val) { Weapon_Ammo = val; }
+        void SetAmmo_Type();
 
         Size GetAmmoSize() { return Weapon_Ammo.getAmmoSize(); }
 

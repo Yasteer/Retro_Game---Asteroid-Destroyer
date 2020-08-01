@@ -3,7 +3,7 @@
 
 #include "Position.h"
 #include "Size.h"
-
+#include <iostream>
 class Ammo
 {
     public:

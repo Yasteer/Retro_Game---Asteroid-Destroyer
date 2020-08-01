@@ -16,9 +16,6 @@ class Player
         void setPosition(unsigned int x, unsigned int y);
         Size getPlayerSize();
 
-        Weapon getWeapon();
-        //void setWeapon(Weapon newWeapon);
-
     protected:
 
     private:

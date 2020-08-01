@@ -25,6 +25,8 @@ class Weapon_Presentation
 
         Size getAmmoSize();
 
+        void setWeapon(int Hit_Count);
+
     protected:
 
     private:
@@ -33,13 +35,17 @@ class Weapon_Presentation
         Position weapon_origin;
 
         sf::Texture Ammo_Texture;
-        sf::Sprite Ammo_Sprite;
 
         sf::Sprite Bullet_Sprite;
         sf::Sprite Bullet_EndLife_Sprite;
 
+        sf::Texture Rocket_Texture;
         sf::Sprite Rocket_Sprite;
+        sf::Sprite Rocket_EndLife_Sprite;
+
+        sf::Texture Laser_Texture;
         sf::Sprite Laser_Sprite;
+        sf::Sprite Laser_EndLife_Sprite;
 
         bool Terminate_Ammo_Sprite;
 };

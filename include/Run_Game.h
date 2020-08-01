@@ -34,6 +34,8 @@ class Run_Game
         sf::RenderWindow Game_Screen;
         unsigned int Height;
         unsigned int Width;
+
+        int Hit_Count;
 };
 
 #endif // RUN_GAME_H
