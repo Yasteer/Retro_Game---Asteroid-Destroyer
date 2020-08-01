@@ -28,6 +28,8 @@ void Asteroid::Populate_Mine_Field()
     {
         srand(time(0));// Assign a position based on this new seed.
 
+        SetLifePoints( 20 + (rand() % 100));
+
         Asteroid_Size.SetHeight(10 + (rand() % 40)); // Random size between 1 and 40.
         Asteroid_Size.SetLength(10 + (rand() % 40)); // Reference: http://www.cplusplus.com/reference/cstdlib/rand/
 

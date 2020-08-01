@@ -41,6 +41,9 @@ void Run_Game::Run()
                 case sf::Keyboard::Up:
                     weapon.Fire_Weapon(player.getPlayerPosition());
                     break;
+                case sf::Keyboard::Space:
+                    //player.Upgrade();
+                    break;
                 default:
                     break;
                 }
@@ -61,7 +64,8 @@ void Run_Game::Run()
             if(test.Collision_Detected(weapon.getAmmoPosition(),weapon.getAmmoSize(),asteroids.getField().at(element)->GetAsteroid_Location(),asteroids.getField().at(element)->GetAsteroid_Size()) == true)
             {
                 asteroids.deleteAsteroid(element);
-                //std::cout<< weapon.getAmmoPosition().GetX_Coordinate() << " " << weapon.getAmmoPosition().GetY_Coordinate() <<std::endl;
+                Hit_Count++;
+                weapon.setWeapon(Hit_Count);
             }
 
         }

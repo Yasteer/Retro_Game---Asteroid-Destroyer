@@ -1,5 +1,5 @@
 #include "Player.h"
-
+#include <iostream>
 Player::Player() // Default Parameters For A Player
 {
     Player_Size.SetHeight(10);
@@ -33,11 +33,6 @@ void Player::setPosition(unsigned int x, unsigned int y)
     Location.SetX_Coordinate(x);
     Location.SetY_Coordinate(y);
     return;
-}
-
-Weapon Player::getWeapon()
-{
-    return Main_Artillery;
 }
 
 Size Player::getPlayerSize()

@@ -1,5 +1,5 @@
 #include "Player_Presentation.h"
-
+#include <iostream>
 Player_Presentation::Player_Presentation()
 {
     if(!Player_Texture.loadFromFile("In_Game_Images/Player.png"))
@@ -62,4 +62,3 @@ Size Player_Presentation::getPlayerSize()
 {
     return Player_Object.getPlayerSize();
 }
-

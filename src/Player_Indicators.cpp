@@ -38,16 +38,19 @@ void Player_Indicators::DecreaseMana(const Upgrade& Upgrade_Type)
 {
     switch (Upgrade_Type.GetSpecial_Effect())
     {
-    case 0: // Shields
+    case 0: // No Effect
+        Mana = Mana;
+        break;
+    case 1: // Shields
         Mana -= 10;
         break;
-    case 1: // Size Decrease
+    case 2: // Size Decrease
         Mana -= 4;
         break;
-    case 2: // Speed Up
+    case 3: // Speed Up
         Mana -= 2;
         break;
-    case 3: // Armada Summon
+    case 4: // Armada Summon
         Mana -= 25;
         break;
     }

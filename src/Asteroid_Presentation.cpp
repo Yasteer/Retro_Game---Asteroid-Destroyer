@@ -29,7 +29,7 @@ Asteroid_Presentation::~Asteroid_Presentation()
 
 void Asteroid_Presentation::update(float dt, int Width, int Height)
 {
-    int Delay = 1*1000; // 5 Second Delay.
+    int Delay = 5*1000; // 5 Second Delay.
 
     sf::Time Current_Time = clock.getElapsedTime();
     if(Current_Time.asMilliseconds() >= Delay)
